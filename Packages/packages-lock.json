@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.mortise.knot": {
+      "version": "ssh://git@github.com/onovich/Knot.git?path=/Assets/com.mortise.knot#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9ceabe5ba7e7f31b45571f02e80bacf54927f8ed"
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.1",
       "depth": 0,

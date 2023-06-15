@@ -1,8 +1,9 @@
 {
-    "name": "MortiseFrame.Modifier.Toaster",
+    "name": "MortiseFrame.Modifier.Toaster.Sample",
     "rootNamespace": "",
     "references": [
         "GUID:a8c89cb741acd6c4fb0a2cfbab7580dc",
+        "GUID:04bbc1fd2ff2dd34481b9d1bc83e8248",
         "GUID:04bbc1fd2ff2dd34481b9d1bc83e8248",
         "GUID:d5a79df5d06676b4cade14bc58437dcb"
     ],

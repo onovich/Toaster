@@ -6,14 +6,14 @@
         "name": "onovich",
         "email": "onovich1110@gmail.com"
     },
-    "displayName": "MortiseFrame.Compass",
+    "displayName": "MortiseFrame.Modifier.Toaster",
     "description": "A pathfinding library.",
-    "documentationURL": "https://github.com/onovich/Compass",
+    "documentationURL": "https://github.com/onovich/Toaster",
     "hideInEditor": false,
-    "category": "Easing",
+    "category": "Bake",
     "keywords": [
         "MortiseFrame",
-        "pathfinding"
+        "physics"
     ],
     "unityRelease": "16f1"
 }

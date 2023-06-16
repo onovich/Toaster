@@ -1,22 +1,21 @@
 using System;
 using UnityEngine;
 
-
 namespace MortiseFrame.Modifier.Toaster.Generic {
 
-    public struct ToasterGridTM {
+    [Serializable]
+    public class ToasterGridTM {
 
-        bool[] passable;
+        [SerializeField] bool[] passable;
         public bool[] Passable => passable;
         public void SetPassable(bool[] value) => passable = value;
         public void ClearPassable() => passable = null;
 
         public Vector2Int CellCount;
         public Vector2 CellSize;
-        public Vector2 StageOffset;
-        public int MPU;
+        public Vector2 LocalOffset;
 
-        public Vector2 localOffset;
+        public int MPU;
 
         public bool GetPassableValue(Vector2Int index) {
             var x = index.x;
@@ -33,7 +32,7 @@ namespace MortiseFrame.Modifier.Toaster.Generic {
             var y = index.y;
             var i = x + y * CellCount.x;
             if (i >= passable.Length || i < 0) {
-                Debug.LogError($"Index out of range");
+                Debug.LogError($"Index out of range: x = {x}, y = {y}, i = {i}, length = {passable.Length}");
             }
             passable[i] = value;
         }

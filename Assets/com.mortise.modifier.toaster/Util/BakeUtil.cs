@@ -14,20 +14,29 @@ namespace MortiseFrame.Modifier.Toaster.Util {
 
             tm.CellCount = cellCount;
             tm.CellSize = cellSize;
-            tm.StageOffset = stageOffset;
+            tm.LocalOffset = stageOffset;
             tm.MPU = MPU;
 
             var grid = new bool[cellCount.x * cellCount.y];
             tm.SetPassable(grid);
             cells = new AABB[cellCount.x * cellCount.y];
+            Debug.Log($"cellCount: {cellCount.x}, {cellCount.y}, Length: {cells.Length}");
 
-            for (int x = 0; x < cells.Length; x++) {
-                var y = cells.Length / cellCount.x;
+            for (int i = 0; i < cells.Length; i++) {
+
+                var x = i % cellCount.x;
+                var y = i / cellCount.x;
                 var index = new Vector2Int(x, y);
-                var pos = BakeMathUtil.Index2GizmosCenter(index, cellSize, stageOffset);
+
                 tm.SetPassableValue(index, true);
+                Debug.Log($"index: {index.x}, {index.y}, TRUE");
                 var cell_aabb = BakeMathUtil.Index2AABB(index, cellSize, stageOffset);
-                cells[cells.Length % cellCount.x] = cell_aabb;
+                cells[i] = cell_aabb;
+
+            }
+
+            if (cells.Length == 0) {
+                Debug.LogError("cells.Length == 0");
             }
 
         }
@@ -36,17 +45,21 @@ namespace MortiseFrame.Modifier.Toaster.Util {
 
             ObstacleIntersectUtil.IntesctCircle_AABB(circles, cells, cellCount, (index) => {
                 tm.SetPassableValue(index, false);
+                Debug.Log($"intersect: x:{index.x}, y:{index.y}");
+
             });
             ObstacleIntersectUtil.IntesctAABB_AABB(aabbs, cells, cellCount, (index) => {
                 tm.SetPassableValue(index, false);
+                Debug.Log($"intersect: x:{index.x}, y:{index.y}");
             });
             ObstacleIntersectUtil.IntesctOBB_AABB(obbs, cells, cellCount, (index) => {
                 tm.SetPassableValue(index, false);
+                Debug.Log($"intersect: x:{index.x}, y:{index.y}");
             });
 
         }
 
-        public static void BakeObstacleArray<T>(T[] elements, out AABB[] aabbs, out OBB[] obbs, out Circle[] circles) where T : MonoBehaviour {
+        public static void BakeObstacleArray(GameObject[] elements, out AABB[] aabbs, out OBB[] obbs, out Circle[] circles) {
 
             aabbs = null;
             obbs = null;
@@ -65,7 +78,7 @@ namespace MortiseFrame.Modifier.Toaster.Util {
                 var boxCol = elements[i].GetComponent<BoxCollider2D>();
                 var circleCol = elements[i].GetComponent<CircleCollider2D>();
 
-                Debug.Assert(boxCol == null && circleCol == null);
+                Debug.Assert(boxCol == null || circleCol == null);
 
                 if (boxCol == null && circleCol != null) {
                     var circle = BakeCollider2ShapeUtil.CircleCollider2Circle(circleCol);

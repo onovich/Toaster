@@ -11,25 +11,37 @@ namespace MortiseFrame.Modifier.Toaster.Util {
         public static void IntesctAABB_AABB(AABB[] aabbs, AABB[] cells, Vector2Int cellCount, Action<Vector2Int> OnIntersect) {
 
             if (aabbs == null || aabbs.Length == 0) {
+                Debug.Log("aabbs is null");
                 return;
             }
 
-            for (int i = 0; i < aabbs.Length; i++) {
+            for (int j = 0; j < aabbs.Length; j++) {
 
-                var aabb = aabbs[i];
+                var aabb = aabbs[j];
+                if (aabb == null) {
+                    Debug.LogError("aabb is null");
+                }
 
-                for (int x = 0; x < cells.Length; x++) {
+                if (cells == null) {
+                    Debug.LogError("cells is null");
+                }
 
-                    var cell = cells[x];
+                for (int i = 0; i < cells.Length; i++) {
+
+                    var cell = cells[i];
+                    if (cell == null) {
+                        Debug.LogError($"cell is null: {i}");
+                    }
                     var intersect = Intersect2DUtil.IsIntersectAABB_AABB(cell, aabb, float.Epsilon);
 
                     if (intersect) {
-                        var y = x / cellCount.x;
+
+                        var x = i % cellCount.x;
+                        var y = i / cellCount.x;
                         var index = new Vector2Int(x, y);
                         OnIntersect.Invoke(index);
-                        //ToasterGridTM tm,
-                        // tm.SetPassableValue(index, false);
-                        // EditorUtility.SetDirty(model);
+                        Debug.Log($"intersect: x:{x}, y:{y}");
+
                     }
 
                 }
@@ -41,23 +53,26 @@ namespace MortiseFrame.Modifier.Toaster.Util {
         public static void IntesctOBB_AABB(OBB[] obbs, AABB[] cells, Vector2Int cellCount, Action<Vector2Int> OnIntersect) {
 
             if (obbs == null || obbs.Length == 0) {
+                Debug.Log("obbs is null");
                 return;
             }
 
-            for (int i = 0; i < obbs.Length; i++) {
+            for (int j = 0; j < obbs.Length; j++) {
 
-                var obb = obbs[i];
+                var obb = obbs[j];
 
-                for (int x = 0; x < cells.Length; x++) {
+                for (int i = 0; i < cells.Length; i++) {
 
-                    var y = x / cellCount.x;
-                    var cell_aabb = cells[x];
+                    var cell_aabb = cells[i];
                     var intersect = Intersect2DUtil.IsIntersectAABB_OBB(cell_aabb, obb, float.Epsilon);
 
                     if (intersect) {
+
+                        var x = i % cellCount.x;
+                        var y = i / cellCount.x;
                         var index = new Vector2Int(x, y);
                         OnIntersect.Invoke(index);
-                        // model.tm.SetWalkableValueWithIndex(index, false);
+                        Debug.Log($"intersect: x:{x}, y:{y}");
 
                     }
 
@@ -70,23 +85,26 @@ namespace MortiseFrame.Modifier.Toaster.Util {
         public static void IntesctCircle_AABB(Circle[] circles, AABB[] cells, Vector2Int cellCount, Action<Vector2Int> OnIntersect) {
 
             if (circles == null || circles.Length == 0) {
+                Debug.Log("circles is null");
                 return;
             }
 
-            for (int i = 0; i < circles.Length; i++) {
+            for (int j = 0; j < circles.Length; j++) {
 
-                var obstacle_circle = circles[i];
+                var obstacle_circle = circles[j];
 
-                for (int x = 0; x < cells.Length; x++) {
+                for (int i = 0; i < cells.Length; i++) {
 
-                    var y = x / cellCount.x;
-                    var cell_aabb = cells[x];
+                    var cell_aabb = cells[i];
                     var intersect = Intersect2DUtil.IsIntersectAABB_Circle(cell_aabb, obstacle_circle, float.Epsilon);
 
                     if (intersect) {
+
+                        var x = i % cellCount.x;
+                        var y = i / cellCount.x;
                         var index = new Vector2Int(x, y);
                         OnIntersect.Invoke(index);
-                        // model.tm.SetWalkableValueWithIndex(index, false);
+                        Debug.Log($"intersect: x:{x}, y:{y}");
 
                     }
 

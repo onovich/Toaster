@@ -1,5 +1,5 @@
 {
-    "name": "MortiseFrame.Modifier.Helper",
+    "name": "MortiseFrame.Modifier.Toaster.Helper",
     "rootNamespace": "",
     "references": [
         "GUID:d5a79df5d06676b4cade14bc58437dcb",

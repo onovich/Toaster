@@ -17,6 +17,11 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
         // Lock
         bool isBaked = false;
 
+        // Visible
+        [Header("显示网格")] public bool showGrid = true;
+        [Header("显示障碍物")] public bool showObstacle = true;
+        [Header("显示通行度")] public bool showCapability = true;
+
         [ContextMenu("Bake")]
         void Bake() {
 
@@ -65,8 +70,9 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
                 return;
             }
 
-            GizmosHelper.DrawGrid(model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
-            GizmosHelper.DrawCapability(model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
+            GizmosHelper.DrawGrid(showGrid, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
+            GizmosHelper.DrawObstacle(showObstacle, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
+            GizmosHelper.DrawCapability(showCapability, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
 
         }
 

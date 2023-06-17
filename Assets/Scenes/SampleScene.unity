@@ -464,6 +464,18 @@ PrefabInstance:
       propertyPath: MPU
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7393756275093366531, guid: ddf30bc63a76e2f4cbba083ca04f2e34, type: 3}
+      propertyPath: showGrid
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393756275093366531, guid: ddf30bc63a76e2f4cbba083ca04f2e34, type: 3}
+      propertyPath: showObstacle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393756275093366531, guid: ddf30bc63a76e2f4cbba083ca04f2e34, type: 3}
+      propertyPath: showCapability
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7393756275533630626, guid: ddf30bc63a76e2f4cbba083ca04f2e34, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -22,7 +22,7 @@ namespace MortiseFrame.Modifier.Toaster.Util {
             tm.SetPassable(passable);
             tm.SetCapability(capability);
             cells = new AABB[cellCount.x * cellCount.y];
-            Debug.Log($"cellCount: {cellCount.x}, {cellCount.y}, Length: {cells.Length}");
+            Debug.Log($"Bake Success! CellCount: {cellCount.x}, {cellCount.y}, Length: {cells.Length}");
 
             for (int i = 0; i < cells.Length; i++) {
 
@@ -48,16 +48,12 @@ namespace MortiseFrame.Modifier.Toaster.Util {
 
             ObstacleIntersectUtil.IntesctCircle_AABB(circles, cells, cellCount, (index) => {
                 tm.SetPassableValue(index, false);
-                Debug.Log($"intersect: x:{index.x}, y:{index.y}");
-
             });
             ObstacleIntersectUtil.IntesctAABB_AABB(aabbs, cells, cellCount, (index) => {
                 tm.SetPassableValue(index, false);
-                Debug.Log($"intersect: x:{index.x}, y:{index.y}");
             });
             ObstacleIntersectUtil.IntesctOBB_AABB(obbs, cells, cellCount, (index) => {
                 tm.SetPassableValue(index, false);
-                Debug.Log($"intersect: x:{index.x}, y:{index.y}");
             });
 
         }

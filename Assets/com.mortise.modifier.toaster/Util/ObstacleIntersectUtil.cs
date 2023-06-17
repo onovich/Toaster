@@ -40,7 +40,6 @@ namespace MortiseFrame.Modifier.Toaster.Util {
                         var y = i / cellCount.x;
                         var index = new Vector2Int(x, y);
                         OnIntersect.Invoke(index);
-                        Debug.Log($"intersect: x:{x}, y:{y}");
 
                     }
 
@@ -72,7 +71,6 @@ namespace MortiseFrame.Modifier.Toaster.Util {
                         var y = i / cellCount.x;
                         var index = new Vector2Int(x, y);
                         OnIntersect.Invoke(index);
-                        Debug.Log($"intersect: x:{x}, y:{y}");
 
                     }
 
@@ -104,7 +102,6 @@ namespace MortiseFrame.Modifier.Toaster.Util {
                         var y = i / cellCount.x;
                         var index = new Vector2Int(x, y);
                         OnIntersect.Invoke(index);
-                        Debug.Log($"intersect: x:{x}, y:{y}");
 
                     }
 

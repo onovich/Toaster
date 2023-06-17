@@ -5,7 +5,7 @@ namespace MortiseFrame.Modifier.Toaster.Util {
 
     public static class BakeCapabilityCalculateUtil {
 
-        public static void CalculateCapability(ToasterGridTM tm, Vector2Int index) {
+        public static void CalculateCapability(ToasterGridTM tm, Vector2Int index, int maxCapability) {
 
             // 0. 获取到当前坐标
             // 1. 基于当前坐标扩散，直到遇到障碍物或者边界
@@ -15,7 +15,7 @@ namespace MortiseFrame.Modifier.Toaster.Util {
             var isBlocked = false;
 
             // 迭代圈数
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i <= maxCapability; i++) {
 
                 // 上边
                 for (int j = -i; j <= i; j++) {

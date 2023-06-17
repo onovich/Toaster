@@ -106,7 +106,7 @@ namespace MortiseFrame.Modifier.Toaster.Util {
 
         }
 
-        public static void BakeCapability(bool enable, ToasterGridTM tm) {
+        public static void BakeCapability(bool enable, ToasterGridTM tm, int maxCapability) {
 
             var cellCount = tm.CellCount;
             var cellSize = tm.CellSize;
@@ -120,12 +120,12 @@ namespace MortiseFrame.Modifier.Toaster.Util {
                 for (int y = 0; y < cellCount.y; y++) {
 
                     if (enable == false) {
-                        tm.SetCapabilityValue(new Vector2Int(x, y), 1);
+                        tm.SetCapabilityValue(new Vector2Int(x, y), -1);
                         continue;
                     } else {
                         var i = x + y * cellCount.x;
                         var index = new Vector2Int(x, y);
-                        BakeCapabilityCalculateUtil.CalculateCapability(tm, index);
+                        BakeCapabilityCalculateUtil.CalculateCapability(tm, index, maxCapability);
                     }
 
                 }

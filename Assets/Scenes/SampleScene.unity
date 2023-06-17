@@ -473,6 +473,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7393756275093366531, guid: ddf30bc63a76e2f4cbba083ca04f2e34, type: 3}
+      propertyPath: maxCapability
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393756275093366531, guid: ddf30bc63a76e2f4cbba083ca04f2e34, type: 3}
       propertyPath: showCapability
       value: 1
       objectReference: {fileID: 0}

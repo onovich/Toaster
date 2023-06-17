@@ -18,9 +18,12 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
         bool isBaked = false;
 
         // Capability
+        [Header("通行度 ------------------------------------------------------------")]
         [Header("通行度计算")] public bool calculateCapability = true;
+        [Header("最大允许通行度")] public int maxCapability = 10;
 
         // Visible
+        [Header("可视化 ------------------------------------------------------------")]
         [Header("显示网格")] public bool showGrid = true;
         [Header("显示障碍物")] public bool showObstacle = true;
         [Header("显示通行度")] public bool showCapability = true;
@@ -43,7 +46,7 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
                 goes[i] = elements[i].gameObject;
             }
 
-            var toaster = new Toaster(MPU, UnitCount, localOffset, goes, calculateCapability);
+            var toaster = new Toaster(MPU, UnitCount, localOffset, goes, calculateCapability, maxCapability);
             var tm = toaster.Bake();
 
             model.tm = tm;

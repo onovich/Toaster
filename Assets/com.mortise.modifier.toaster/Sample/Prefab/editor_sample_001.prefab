@@ -47,7 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 11400000, guid: 32d4098abdf6f29429621f943897dd9e, type: 2}
   UnitCount: {x: 10, y: 10}
-  MPU: 1
+  MPU: 2
+  calculateCapability: 1
+  maxCapability: 3
+  showGrid: 1
+  showObstacle: 1
+  showCapability: 1
 --- !u!1 &7393756275349391427
 GameObject:
   m_ObjectHideFlags: 0

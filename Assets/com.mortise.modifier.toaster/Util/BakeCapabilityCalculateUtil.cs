@@ -14,8 +14,15 @@ namespace MortiseFrame.Modifier.Toaster.Util {
             var cellCount = tm.CellCount;
             var isBlocked = false;
 
+            var maxSize = Mathf.Max(cellCount.x, cellCount.y);
+
             // 迭代圈数
-            for (int i = 0; i <= maxCapability; i++) {
+            for (int i = 0; i <= maxSize; i++) {
+
+                if (i > maxCapability) {
+                    tm.SetCapabilityValue(index, maxCapability);
+                    return;
+                }
 
                 // 上边
                 for (int j = -i; j <= i; j++) {

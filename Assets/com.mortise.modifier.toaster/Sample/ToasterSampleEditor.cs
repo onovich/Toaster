@@ -17,16 +17,16 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
         // Lock
         bool isBaked = false;
 
-        // Capability
+        // Capacity
         [Header("通行度 ------------------------------------------------------------")]
-        [Header("通行度计算")] public bool calculateCapability = true;
-        [Header("最大允许通行度")] public int maxCapability = 10;
+        [Header("通行度计算")] public bool calculateCapacity = true;
+        [Header("最大允许通行度")] public int maxCapacity = 10;
 
         // Visible
         [Header("可视化 ------------------------------------------------------------")]
         [Header("显示网格")] public bool showGrid = true;
         [Header("显示障碍物")] public bool showObstacle = true;
-        [Header("显示通行度")] public bool showCapability = true;
+        [Header("显示通行度")] public bool showCapacity = true;
 
         [ContextMenu("Bake")]
         void Bake() {
@@ -46,7 +46,7 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
                 goes[i] = elements[i].gameObject;
             }
 
-            var toaster = new Toaster(MPU, UnitCount, localOffset, goes, calculateCapability, maxCapability);
+            var toaster = new Toaster(MPU, UnitCount, localOffset, goes, calculateCapacity, maxCapacity);
             var tm = toaster.Bake();
 
             model.tm = tm;
@@ -78,7 +78,7 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
 
             GizmosHelper.DrawGrid(showGrid, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
             GizmosHelper.DrawObstacle(showObstacle, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
-            GizmosHelper.DrawCapability(showCapability, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
+            GizmosHelper.DrawCapacity(showCapacity, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
 
         }
 

@@ -6,7 +6,7 @@ namespace MortiseFrame.Modifier.Toaster.Helper {
 
     public static class GizmosHelper {
 
-        public static void DrawCapability(bool enable, Vector2 cellSize, Vector2Int cellCount, Vector2 localOffset, ToasterGridTM tm) {
+        public static void DrawCapacity(bool enable, Vector2 cellSize, Vector2Int cellCount, Vector2 localOffset, ToasterGridTM tm) {
 
             if (!enable) {
                 return;
@@ -17,12 +17,12 @@ namespace MortiseFrame.Modifier.Toaster.Helper {
                 for (int j = 0; j < cellCount.y; j++) {
 
                     var index = new Vector2Int(i, j);
-                    var capability = tm.GetCapabilityValue(index);
+                    var capacity = tm.GetCapacityValue(index);
 
                     Gizmos.color = Color.white;
                     var pos = BakeMathUtil.Index2GizmosCenter(index, cellSize, localOffset);
 
-                    UnityEditor.Handles.Label(pos, capability.ToString());
+                    UnityEditor.Handles.Label(pos, capacity.ToString());
 
                 }
 

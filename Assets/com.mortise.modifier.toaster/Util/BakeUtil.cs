@@ -18,9 +18,9 @@ namespace MortiseFrame.Modifier.Toaster.Util {
             tm.MPU = MPU;
 
             var passable = new bool[cellCount.x * cellCount.y];
-            var capability = new int[cellCount.x * cellCount.y];
+            var capacity = new int[cellCount.x * cellCount.y];
             tm.SetPassable(passable);
-            tm.SetCapability(capability);
+            tm.SetCapacity(capacity);
             cells = new AABB[cellCount.x * cellCount.y];
             Debug.Log($"Bake Success! CellCount: {cellCount.x}, {cellCount.y}, Length: {cells.Length}");
 
@@ -31,7 +31,7 @@ namespace MortiseFrame.Modifier.Toaster.Util {
                 var index = new Vector2Int(x, y);
 
                 tm.SetPassableValue(index, true);
-                tm.SetCapabilityValue(index, 1);
+                tm.SetCapacityValue(index, 1);
 
                 var cell_aabb = BakeMathUtil.Index2AABB(index, cellSize, stageOffset);
                 cells[i] = cell_aabb;
@@ -102,7 +102,7 @@ namespace MortiseFrame.Modifier.Toaster.Util {
 
         }
 
-        public static void BakeCapability(bool enable, ToasterGridTM tm, int maxCapability) {
+        public static void BakeCapacity(bool enable, ToasterGridTM tm, int maxCapacity) {
 
             var cellCount = tm.CellCount;
             var cellSize = tm.CellSize;
@@ -116,12 +116,12 @@ namespace MortiseFrame.Modifier.Toaster.Util {
                 for (int y = 0; y < cellCount.y; y++) {
 
                     if (enable == false) {
-                        tm.SetCapabilityValue(new Vector2Int(x, y), -1);
+                        tm.SetCapacityValue(new Vector2Int(x, y), -1);
                         continue;
                     } else {
                         var i = x + y * cellCount.x;
                         var index = new Vector2Int(x, y);
-                        BakeCapabilityCalculateUtil.CalculateCapability(tm, index, maxCapability);
+                        BakeCapacityCalculateUtil.CalculateCapacity(tm, index, maxCapacity);
                     }
 
                 }

@@ -11,9 +11,9 @@ namespace MortiseFrame.Modifier.Toaster.Generic {
         public void SetPassable(bool[] value) => passable = value;
         public void ClearPassable() => passable = null;
 
-        [SerializeField] int[] capability;
-        public int[] Capability => capability;
-        public void SetCapability(int[] value) => capability = value;
+        [SerializeField] int[] capacity;
+        public int[] Capacity => capacity;
+        public void SetCapacity(int[] value) => capacity = value;
 
         public Vector2Int CellCount;
         public Vector2 CellSize;
@@ -31,14 +31,14 @@ namespace MortiseFrame.Modifier.Toaster.Generic {
             return passable[x + y * CellCount.x];
         }
 
-        public int GetCapabilityValue(Vector2Int index) {
+        public int GetCapacityValue(Vector2Int index) {
             var x = index.x;
             var y = index.y;
             var i = x + y * CellCount.x;
             if (i >= passable.Length || i < 0) {
                 Debug.LogError($"Index out of range");
             }
-            return capability[x + y * CellCount.x];
+            return capacity[x + y * CellCount.x];
         }
 
         public void SetPassableValue(Vector2Int index, bool value) {
@@ -51,19 +51,19 @@ namespace MortiseFrame.Modifier.Toaster.Generic {
             passable[i] = value;
         }
 
-        public void SetCapabilityValue(Vector2Int index, int value) {
+        public void SetCapacityValue(Vector2Int index, int value) {
             var x = index.x;
             var y = index.y;
             var i = x + y * CellCount.x;
             if (i >= passable.Length || i < 0) {
                 Debug.LogError($"Index out of range: x = {x}, y = {y}, i = {i}, length = {passable.Length}");
             }
-            capability[i] = value;
+            capacity[i] = value;
         }
 
         public void Clear() {
             passable = null;
-            capability = null;
+            capacity = null;
             CellCount = Vector2Int.zero;
         }
 

@@ -63,6 +63,7 @@ namespace MortiseFrame.Modifier.Toaster.Generic {
 
         public void Clear() {
             passable = null;
+            capability = null;
             CellCount = Vector2Int.zero;
         }
 

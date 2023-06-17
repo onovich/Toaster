@@ -61,6 +61,7 @@ namespace MortiseFrame.Modifier.Toaster {
             BakeUtil.BakeGrid(tm, MPU, localOffset, UnitCount, out cells);
             BakeUtil.BakeObstacleArray(obstacles, out aabbs, out obbs, out circles);
             BakeUtil.BakeIntersectInfo(aabbs.ToArray(), obbs.ToArray(), circles.ToArray(), cells, cellCount, tm);
+            BakeUtil.BakeCapability(tm);
 
             return tm;
 

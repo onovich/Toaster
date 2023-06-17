@@ -31,13 +31,17 @@ namespace MortiseFrame.Modifier.Toaster {
         // Output
         ToasterGridTM tm;
 
-        public Toaster(int MPU, Vector2Int UnitCount, Vector2 localOffset, GameObject[] obstacles) {
+        // Capibility
+        bool needCapability = true;
+
+        public Toaster(int MPU, Vector2Int UnitCount, Vector2 localOffset, GameObject[] obstacles, bool needCapability) {
 
             tm = new ToasterGridTM();
             this.MPU = MPU;
             this.UnitCount = UnitCount;
             this.localOffset = localOffset;
             this.obstacles = obstacles;
+            this.needCapability = needCapability;
 
             if (MPU <= 0) {
                 throw new System.Exception("MPU must be greater than 0");
@@ -61,7 +65,7 @@ namespace MortiseFrame.Modifier.Toaster {
             BakeUtil.BakeGrid(tm, MPU, localOffset, UnitCount, out cells);
             BakeUtil.BakeObstacleArray(obstacles, out aabbs, out obbs, out circles);
             BakeUtil.BakeIntersectInfo(aabbs.ToArray(), obbs.ToArray(), circles.ToArray(), cells, cellCount, tm);
-            BakeUtil.BakeCapability(tm);
+            BakeUtil.BakeCapability(needCapability, tm);
 
             return tm;
 

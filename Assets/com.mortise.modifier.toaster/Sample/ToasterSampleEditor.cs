@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using MortiseFrame.Modifier.Toaster;
 using UnityEditor;
 using MortiseFrame.Modifier.Toaster.Helper;
 
@@ -69,6 +66,7 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
             }
 
             GizmosHelper.DrawGrid(model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
+            GizmosHelper.DrawCapability(model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm);
 
         }
 

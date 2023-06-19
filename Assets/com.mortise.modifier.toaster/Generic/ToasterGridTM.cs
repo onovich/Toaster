@@ -6,6 +6,8 @@ namespace MortiseFrame.Modifier.Toaster.Generic {
     [Serializable]
     public class ToasterGridTM {
 
+        public bool enable;
+
         [SerializeField] bool[] passable;
         public bool[] Passable => passable;
         public void SetPassable(bool[] value) => passable = value;

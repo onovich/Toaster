@@ -51,13 +51,14 @@ namespace MortiseFrame.Modifier.Toaster.Generic {
             passable[i] = value;
         }
 
-        public void SetCapacityValue(Vector2Int index, int value) {
+        public void SetCapacityValue(Vector2Int index, int round) {
             var x = index.x;
             var y = index.y;
             var i = x + y * CellCount.x;
             if (i >= passable.Length || i < 0) {
                 Debug.LogError($"Index out of range: x = {x}, y = {y}, i = {i}, length = {passable.Length}");
             }
+            var value = round * 2 - 1;
             capacity[i] = value;
         }
 

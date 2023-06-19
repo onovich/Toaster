@@ -9,7 +9,7 @@ namespace MortiseFrame.Modifier.Toaster.Util {
 
             // 0. 获取到当前坐标
             // 1. 基于当前坐标扩散，直到遇到障碍物或者边界
-            // 2. 每成功扩散一次，capacity + 1
+            // 2. 每成功扩散一次，capacity + 2 （待优化: 基于半格扩散）
 
             var cellCount = tm.CellCount;
             var isBlocked = false;

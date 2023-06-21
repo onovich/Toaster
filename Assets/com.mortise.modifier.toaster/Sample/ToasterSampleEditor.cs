@@ -12,7 +12,8 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
         // Input
         [Header("覆盖单位数")] public Vector2Int UnitCount = new Vector2Int(10, 10);
         [Header("每单位网格数(n x n)")] public int MPU = 1;
-        Vector2 localOffset => new Vector2(-UnitCount.x * 0.5f, -UnitCount.y * 0.5f);
+        [Header("本地偏移")] public Vector2 localOffse;
+        public Vector2 offset => new Vector2(-UnitCount.x * 0.5f, -UnitCount.y * 0.5f) + localOffse;
 
         // Lock
         bool isBaked = false;
@@ -46,7 +47,7 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
                 goes[i] = elements[i].gameObject;
             }
 
-            var toaster = new Toaster(MPU, UnitCount, localOffset, goes, calculateCapacity, maxCapacity);
+            var toaster = new Toaster(MPU, UnitCount, offset, goes, calculateCapacity, maxCapacity);
             var tm = toaster.Bake();
 
             model.tm = tm;

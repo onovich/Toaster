@@ -26,7 +26,7 @@ namespace MortiseFrame.Modifier.Toaster {
         Circle[] circles;
 
         // Offset
-        Vector2 localOffset;
+        Vector2 offset;
 
         // Output
         ToasterGridTM tm;
@@ -35,12 +35,12 @@ namespace MortiseFrame.Modifier.Toaster {
         bool needCapacity = true;
         int maxCapacity = 10;
 
-        public Toaster(int MPU, Vector2Int UnitCount, Vector2 localOffset, GameObject[] obstacles, bool needCapacity, int maxCapacity) {
+        public Toaster(int MPU, Vector2Int UnitCount, Vector2 offset, GameObject[] obstacles, bool needCapacity, int maxCapacity) {
 
-            tm = new ToasterGridTM();
+            this.tm = new ToasterGridTM();
             this.MPU = MPU;
             this.UnitCount = UnitCount;
-            this.localOffset = localOffset;
+            this.offset = offset;
             this.obstacles = obstacles;
             this.needCapacity = needCapacity;
             this.maxCapacity = maxCapacity;
@@ -64,7 +64,7 @@ namespace MortiseFrame.Modifier.Toaster {
             ClearObstacle();
             ClearIntersectInfo();
 
-            BakeUtil.BakeGrid(tm, MPU, localOffset, UnitCount, out cells);
+            BakeUtil.BakeGrid(tm, MPU, offset, UnitCount, out cells);
             BakeUtil.BakeObstacleArray(obstacles, out aabbs, out obbs, out circles);
             BakeUtil.BakeIntersectInfo(aabbs.ToArray(), obbs.ToArray(), circles.ToArray(), cells, cellCount, tm);
             BakeUtil.BakeCapacity(needCapacity, tm, maxCapacity);

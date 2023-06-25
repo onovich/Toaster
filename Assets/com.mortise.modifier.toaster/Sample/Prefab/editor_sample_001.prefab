@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2854371688028599939}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7393756275093366530}
@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 11400000, guid: 32d4098abdf6f29429621f943897dd9e, type: 2}
-  UnitCount: {x: 10, y: 10}
-  MPU: 2
+  UnitCount: {x: 2, y: 2}
+  MPU: 1
   localOffse: {x: 0, y: 2}
   calculateCapacity: 1
   maxCapacity: 10
@@ -194,11 +194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2534127050611235502, guid: 5cd77d286fc174449bdfb507ea7c3f52, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.22
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 2534127050611235502, guid: 5cd77d286fc174449bdfb507ea7c3f52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.53
+      value: 4.04
       objectReference: {fileID: 0}
     - target: {fileID: 2534127050611235502, guid: 5cd77d286fc174449bdfb507ea7c3f52, type: 3}
       propertyPath: m_LocalPosition.z

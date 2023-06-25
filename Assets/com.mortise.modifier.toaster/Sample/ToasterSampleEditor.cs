@@ -12,9 +12,8 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
         // Input
         [Header("覆盖单位数")] public Vector2Int UnitCount = new Vector2Int(10, 10);
         [Header("每单位网格数(n x n)")] public int MPU = 1;
-        [Header("本地偏移")] public Vector2 localOffse;
-        public Vector2 offset => new Vector2(-UnitCount.x * 0.5f, -UnitCount.y * 0.5f) + localOffse;
-        // public Vector2 offset => localOffse;
+        [Header("本地偏移")] public Vector2 localOffset;
+        public Vector2 offset => new Vector2(-UnitCount.x * 0.5f, -UnitCount.y * 0.5f) + localOffset;
 
         // Lock
         bool isBaked = false;

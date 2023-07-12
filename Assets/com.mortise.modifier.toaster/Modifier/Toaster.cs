@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using System.Linq;
 using UnityEngine;
 using MortiseFrame.Knot.Shape2D;
@@ -100,3 +102,5 @@ namespace MortiseFrame.Modifier.Toaster {
     }
 
 }
+
+#endif

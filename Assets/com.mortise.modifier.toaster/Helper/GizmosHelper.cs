@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEngine;
 using MortiseFrame.Modifier.Toaster.Generic;
 using MortiseFrame.Modifier.Toaster.Util;
@@ -96,3 +98,5 @@ namespace MortiseFrame.Modifier.Toaster.Helper {
     }
 
 }
+
+#endif

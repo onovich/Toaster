@@ -25,9 +25,9 @@ namespace MortiseFrame.Modifier.Toaster.Helper {
                     Gizmos.color = color;
                     var pos = BakeMathUtil.Index2GizmosCenter(index, cellSize, localOffset);
 
-                    var realCapacity = (int)capacity / mpu;
+                    var realCapacity = (float)capacity / (float)mpu;
 
-                    UnityEditor.Handles.Label(pos, realCapacity.ToString());
+                    UnityEditor.Handles.Label(pos, realCapacity.ToString("F1"));
 
                 }
 

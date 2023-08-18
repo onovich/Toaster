@@ -84,11 +84,12 @@ namespace MortiseFrame.Modifier.Toaster.Sample {
 
         void OnDrawGizmos() {
 
+            GizmosHelper.DrawLargeGrid(showLargeGrid, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm, largeGridColor);
+
             if (!isBaked) {
                 return;
             }
 
-            GizmosHelper.DrawLargeGrid(showLargeGrid, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm, largeGridColor);
             GizmosHelper.DrawGrid(showGrid, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm, gridColor);
             GizmosHelper.DrawObstacle(showObstacle, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm, obstacleColor);
             GizmosHelper.DrawCapacityTest(showCapacity, model.tm.CellSize, model.tm.CellCount, model.tm.LocalOffset, model.tm, capacityColor);
